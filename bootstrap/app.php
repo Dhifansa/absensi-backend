@@ -20,10 +20,6 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
             'auth' => \Illuminate\Auth\Middleware\Authenticate::class,
         ]);
-
-        // Konfigurasi CORS
-        $middleware->validateCsrfTokens(except: ['api/*']);
-        $middleware->trustHosts(at: ['localhost']);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         $exceptions->shouldRenderJsonWhen(
